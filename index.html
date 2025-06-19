@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Search App</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+</head>
+<body>
+    <div class="container">
+        <!-- Header -->
+        <header class="header">
+            <h1 class="app-title">
+                <i class="fas fa-search"></i>
+                Image Explorer
+            </h1>
+            <p class="app-subtitle">Discover amazing photos from Unsplash</p>
+            
+            <!-- Theme Toggle -->
+            <div class="theme-toggle">
+                <input type="checkbox" id="theme-switch">
+                <label for="theme-switch" class="theme-label">
+                    <i class="fas fa-sun"></i>
+                    <i class="fas fa-moon"></i>
+                </label>
+            </div>
+        </header>
+
+        <!-- Search Section -->
+        <section class="search-section">
+            <div class="search-container">
+                <div class="search-box">
+                    <input 
+                        type="text" 
+                        id="searchInput" 
+                        placeholder="Search for images... (e.g., nature, dogs, space)"
+                        autocomplete="off"
+                    >
+                    <button id="searchBtn" class="search-btn">
+                        <i class="fas fa-search"></i>
+                    </button>
+                </div>
+                <div class="search-actions">
+                    <button id="refreshBtn" class="action-btn refresh-btn">
+                        <i class="fas fa-sync-alt"></i>
+                        Refresh Results
+                    </button>
+                    <button id="clearBtn" class="action-btn clear-btn">
+                        <i class="fas fa-times"></i>
+                        Clear
+                    </button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Results Info -->
+        <div class="results-info" id="resultsInfo" style="display: none;">
+            <span class="results-count" id="resultsCount"></span>
+            <button id="favoritesBtn" class="favorites-btn">
+                <i class="fas fa-heart"></i>
+                <span id="favoritesCount">0</span> Favorites
+            </button>
+        </div>
+
+        <!-- Loading Spinner -->
+        <div class="loading" id="loading" style="display: none;">
+            <div class="spinner"></div>
+            <p>Searching for amazing images...</p>
+        </div>
+
+        <!-- Error Message -->
+        <div class="error-message" id="errorMessage" style="display: none;">
+            <i class="fas fa-exclamation-triangle"></i>
+            <p id="errorText"></p>
+            <button id="retryBtn" class="retry-btn">Try Again</button>
+        </div>
+
+        <!-- No Results -->
+        <div class="no-results" id="noResults" style="display: none;">
+            <i class="fas fa-search-minus"></i>
+            <h3>No images found</h3>
+            <p>Try searching for something else</p>
+        </div>
+
+        <!-- Image Grid -->
+        <main class="image-grid" id="imageGrid"></main>
+
+        <!-- Load More Button -->
+        <div class="load-more-container" id="loadMoreContainer" style="display: none;">
+            <button id="loadMoreBtn" class="load-more-btn">
+                <i class="fas fa-plus"></i>
+                Load More Images
+            </button>
+        </div>
+
+        <!-- Favorites Modal -->
+        <div class="modal" id="favoritesModal">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h2><i class="fas fa-heart"></i> Your Favorites</h2>
+                    <button class="modal-close" id="closeFavoritesModal">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="favorites-grid" id="favoritesGrid"></div>
+                    <div class="empty-favorites" id="emptyFavorites">
+                        <i class="far fa-heart"></i>
+                        <p>No favorites yet</p>
+                        <small>Click the heart icon on images to save them</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Image Preview Modal -->
+        <div class="modal image-modal" id="imageModal">
+            <div class="image-modal-content">
+                <button class="modal-close" id="closeImageModal">
+                    <i class="fas fa-times"></i>
+                </button>
+                <div class="image-preview" id="imagePreview"></div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
