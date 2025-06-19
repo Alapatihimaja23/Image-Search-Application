@@ -2,7 +2,7 @@
 class ImageSearchApp {
     constructor() {
         // Configuration
-        this.API_KEY = 'z9Dl9y9DlWc6rh-CCp9KEEdeh-XQHVF9qbcSoOl--h0'; // Replace with your Unsplash API key
+        this.API_KEY = 'Your-api-key'; // Replace with your Unsplash API key
         this.API_URL = 'https://api.unsplash.com/search/photos';
         this.IMAGES_PER_PAGE = 20;
         this.MAX_IMAGES = 1000;
